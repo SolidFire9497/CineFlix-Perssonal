@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Space+Grotesk:wght@300..700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #121212; /* Dark theme background */
+  color: white;
+
+  /* IMPORTANT: Shifts the entire content to the right so it doesn't get hidden under the fixed sidebar */
+  padding-left: 240px;
+}
+
+header {
+  background-color: #1c1c1c;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 a {
+  font-family: "Bebas Neue", cursive;
+  font-size: 36px;
+  margin: 0;
+  text-decoration: none;
+  color: #ff0033; /* FIX: Removes the default blue color from the anchor tag and forces brand color */
+}
+
+/* Fixed vertical sidebar layout */
+nav {
+  background-color: #1c1c1c;
+  width: 200px; /* Fixed width for the sidebar */
+  height: 100vh; /* Fills 100% of the viewport height */
+  position: fixed; /* Keeps sidebar always visible while scrolling down */
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border-right: 1px solid #2d2d2d; /* Subtle divider line between sidebar and main content */
+
+  /* Vertical centering block */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* This centers the list right in the middle of the screen height */
+}
+
+/* Sidebar items layout container */
+nav ul {
+  list-style-type: none; /* Removes default dots/bullets */
+  margin: 0;
+  padding: 0 15px; /* Lateral spacing for the inner button boxes */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Balanced spacing between button boxes */
+}
+
+/* Individual button-box link styling */
+nav a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+
+  /* Box structure setup */
+  display: block; /* Forces the link to fill the entire box space */
+  text-align: center;
+  padding: 12px 20px; /* Vertical and horizontal inner padding */
+  border: 1px solid #2d2d2d; /* Subtle outline for the box */
+  border-radius: 6px; /* Smooth rounded corners */
+  background-color: #141414; /* Dark box background contrast */
+
+  /* Smooth animation response */
+  transition: all 0.2s ease;
+}
+
+/* Interactive hover state for button-boxes */
+nav a:hover {
+  color: white;
+  background-color: #ff0033; /* Transforms box background to brand red */
+  border-color: #ff0033; /* Matches outline with the background */
+  transform: scale(1.03); /* Micro-interaction: subtle pop out effect */
+}
+
+/* Main content container area */
+main {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Spacing between sections */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Section titles typography */
+main h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Section container setup */
+.movie-section {
+  width: 100%;
+}
+
+/* Horizontal movie shelf row transformed into a vertical catalog layout */
+.movie-row {
+  display: flex;
+  flex-direction: column; /* Cards now stack vertically as full-width rows */
+  gap: 25px; /* Spacing between each movie row item */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Catalog full-width movie card container */
+.movie-card {
+  width: 100%; /* Takes up 100% of the remaining screen width */
+  height: 260px; /* Hard-locks the height to form a perfect portrait poster ratio */
+  display: flex;
+  flex-direction: row; /* Image on the left, text block on the right */
+  background-color: #1c1c1c;
+  margin-bottom: 15px; /* Slight spacing between cards */
+  border-radius: 10px;
+  overflow: hidden; /* Ensures the image corners respect the card's border radius */
+  box-sizing: border-box;
+  /* Smooth animation response */
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Card hover interactions */
+.movie-card:hover {
+  transform: scale(1.01); /* Subtle grow interaction */
+  background-color: #222222; /* Lightens up slightly on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/* Movie poster image inside the full-width row */
+.movie-card img {
+  width: 185px; /* Fixed width for portrait aspect ratio inside the row */
+  height: 100%; /* Fills the entire 260px height of the card container */
+  object-fit: cover; /* Crops the wide banner image cleanly into a portrait slot without distorting */
+}
+
+/* Content block wrapping title and description */
+.movie-card .movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers the texts vertically relative to the image */
+  padding: 30px;
+  gap: 12px; /* Space between the Title and the Synopsis */
+  flex: 1; /* Takes up all remaining horizontal space on the right */
+  overflow: hidden;
+}
+
+/* Movie title typography */
+.movie-card h3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* Brief movie description typography */
+.movie-card p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: #b3b3b3; /* Smooth readable gray text */
+  margin: 0;
+  line-height: 1.5; /* Improves text readability */
+
+  /* Clean safety truncation for long synopses (shows up to 3 lines then adds ...) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Container for metadata line */
+.movie-meta {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;              /* Spacing between rating, year, and duration */
+  margin-top: 5px;        /* Spacing below the title */
+  margin-bottom: 10px;    /* Spacing above the description */
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* Golden yellow color for the rating score */
+.movie-meta .rating {
+  color: #ffcc00;
+  background-color: rgba(255, 204, 0, 0.1); /* Subtle glowing background tag */
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Light gray color for year and duration */
+.movie-meta .year, 
+.movie-meta .duration {
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  background-color: #1c1c1c;
+  padding: 20px 0;
+  text-align: center;
+  color: #888888;
+  font-size: 0.9rem;
+}
