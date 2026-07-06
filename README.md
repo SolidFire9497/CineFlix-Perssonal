@@ -31,6 +31,7 @@ Since the project uses pure static files, no installation or dependency manageme
 1. Clone or download this repository.
 2. Open the `index.html` file directly in any modern web browser (or use the _Live Server_ extension in VS Code).
 
+INPORTANT: You need to add banners images, in this path "./assets/img/{name of image, same of images in index.html}"
 ---
 
 ## 🧠 Key Learnings
@@ -40,3 +41,4 @@ During the development of this interface, the following front-end architecture c
 - Manipulating axes and proportional alignment using **Flexbox** properties.
 - Structuring CSS architecture with clean class naming and clear developer comments.
 - Preventing broken layouts using overflow safety constraints (`overflow: hidden`).
+
